@@ -1,3 +1,4 @@
+
 const producto = require('./producto');
 class categoria {
     _listaproductos=[]
@@ -16,15 +17,17 @@ class categoria {
         this._listaproductos.push(com)
 
     }
+
+
     buscarprecio(producto){
         for (let i=0; i<this._listaproductos.length; i++){
             let a=this._listaproductos[i]
             if (producto==a.nombre){
                 return a.precio
             }
-        }
+        } 
     }
-       /* Retornara el nombre del producto  */
+       /* Retornara el nombre del producto  */ 
     buscarnombreprod(producto){
         for (let i=0; i<this._listaproductos.length; i++){
             let a=this._listaproductos[i]
@@ -33,9 +36,9 @@ class categoria {
             }
         }
     }
-    /* Retornara el Objeto, es decir, mostrara la composicion del producto  */
+    /* Retornara el Objeto, es decir, mostrara la composicion del producto  */ 
     buscarproducto(producto){
-        var respuesta
+        var respuesta 
         for (let i=0; i<this._listaproductos.length; i++){
             let a=this._listaproductos[i]
             if (producto==a.nombre){

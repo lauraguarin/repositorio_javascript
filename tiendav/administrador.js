@@ -1,4 +1,7 @@
+
+
 const promo = require('./promo');
+
 var administrador = {
     _promociones: [],
     _usuario: 'francisco',
@@ -18,7 +21,7 @@ var administrador = {
         this._promociones.push(c)
     },
  /*Va a validar si la categoria ingresada tiene descuento y va a buscar recorriendo entre todas las categorias  */
-    buscarpromocion(categoria) {
+    buscarpromocion(categoria) {    
         let  respuesta
         for (let i = 0; i < this.promocion.length; i++) {
             let m = this.promocion[i]

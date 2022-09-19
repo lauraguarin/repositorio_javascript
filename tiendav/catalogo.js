@@ -7,18 +7,18 @@ const producto = require('./producto');
 
 var catalogo = {
     _listacatalogo: [],
-
+    
     get listacatalogo() {
         return this._listacatalogo
     },
-    /*Se hace el llamado del construtor para categoria, que posteriormete adicionara dicho objeto a
+    /*Se hace el llamado del construtor para categoria, que posteriormete adicionara dicho objeto a  
     la lista categoria que posee lista catalogo*/
     ingresarcategoria(nombre_categoria) {
         let cat = new categoria(nombre_categoria)
         this._listacatalogo.push(cat)
     },
     /* Se crea un for con el objetivo de recorrer la listacatalogo en donde va a validar si esta el produto
-      dentro de la categoria
+      dentro de la categoria 
       i va a ser la posicion de la categoria
         */
     obtenerproducto(nombre) {
@@ -33,7 +33,7 @@ var catalogo = {
         }
         return respuesta
     },
-    /* Para ingresar el producto se le especifica al constructor en que categoria debe ingresar el producto y eso
+    /* Para ingresar el producto se le especifica al constructor en que categoria debe ingresar el producto y eso 
     lo va a comprobar por medio de un for el cual va a recorrer*/
     ingresarproductos(categoria, codigo, nombre, precio) {
         for (let i = 0; i < this._listacatalogo.length; i++) {

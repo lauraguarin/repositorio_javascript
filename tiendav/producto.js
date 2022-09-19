@@ -1,4 +1,5 @@
 /* Se crea una clase producto con los atributos correspondientes*/ 
+
 class producto {
     _codigo
     _nombre
