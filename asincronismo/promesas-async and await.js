@@ -1,38 +1,35 @@
-//Ejercicio 1 
+//Ejercicio 1
 let vector=[];
 function llenaArreglo(){{
     return new Promise((resolve,reject)=>{
-        resolve()
-        reject (new Error('muestra el error de tenerlo'))
+        setTimeout(() => {
+            resolve(vector);
         let tamaño =Math.round( Math.random()*100)
     for (let i = 0; i < tamaño; i++) {
         vector[i]=Math.round(Math.random()*100)}
-        console.log(vector)
-        })
-    
-}}
-llenaArreglo()
-.then(sumararreglo)
-.then(promedioarrgelo)
-.catch(error=>console.log('se activa un error de haberlo'))
-let suma = 0
-function sumararreglo(){
-    console.log('En la suma del .then')
-        for (let i = 0; i < vector.length; i++) {
-            suma+=vector[i] }
+        console.log (vector)
+    }, 1000)
+    //reject (new Error('muestra el error de tenerlo'))
+})
+}} 
+async function sumararreglo(){
+        let suma = 0
+        const suma1= await llenaArreglo()
+        for (let i = 0; i < suma1.length; i++) {
+            suma+=suma1[i] }
         console.log('la suma es ',suma)
-    }
-    function  promedioarrgelo(){
-    console.log('En el promedio del .then')
+        console.log (suma1)
+    }sumararreglo()
+   async function  promedioarrgelo(){
         suma=0;
+        const promedio2= await sumararreglo()
         for (let i = 0; i < vector.length; i++) {
-         suma+=vector[i];
-                
-        }
+         suma+=vector[i];}
         let promedio1 = suma/vector.length
-        console.log ('el valos del promedio es :',promedio1)
-
+        console.log ('el valor del promedio es :',promedio1)
+console.log (promedio2)
 }
+promedioarrgelo()
 ////////////////////////////////////////////////////////////////////////////////
 //ejercicio 2
 //function todas(cb1,cb2,cadena){
@@ -45,20 +42,20 @@ function todas(cadena){
     }
    // cb1(cadena)
     //cb2(cadena)
+    setTimeout(() => {
+        resolve('El texto en MAYUSCULAS es:'+ cadena.toUpperCase());
+        }, 2000);
     console.log('El texto original es:'+cadena)
-    console.log('El texto en MAYUSCULAS es:'+ cadena.toUpperCase())
+    //console.log('El texto en MAYUSCULAS es:'+ cadena.toUpperCase())
     console.log('El texto en minuscula es:'+cadena.toLowerCase())
 
-   
+
   })
 }
 todas('LaUra') 
-.then(contarMayusculas)
-
-.catch(error=>console.log('se activa un error de haberlo'))
-//al activarlo me muestra el comentario que puse y si lo 
-//elimino me sale un problema con el .lenght en cadena
-function contarMayusculas(cadena) {
+async function contarMayusculas(cadena) {
+    var cadena1 = await todas()
+    console.log (cadena1)
     var contar = 0;
     var mayusculas = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     for (var i = 0; i < mayusculas.length; i++) {
@@ -71,7 +68,10 @@ function contarMayusculas(cadena) {
     console.log(`El numero de mayusculas: ${contar}`)
     contarminusculas(cadena)
 }
-function contarminusculas(cadena) {
+//al activarlo me muestra el comentario que puse y si lo 
+//elimino me sale un problema con el .lenght en cadena
+
+async function contarMayusculas(cadena) {
     var contar = 0;
     var minusculas = 'abcdefghijklmnopqrstuvwxyz';
     for (var i = 0; i < minusculas.length; i++) {
